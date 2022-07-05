@@ -11,7 +11,6 @@ def crear_cocineros():
 def crear_repartidores():
     pass
 
-
 def crear_clientes():
     pass
 
