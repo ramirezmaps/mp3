@@ -1,5 +1,5 @@
 ##############################################################
-from random import randint, choice
+from random import choices, randint, choice
 from platos import Comestible, Bebestible
 ## Si necesita agregar imports, debe agregarlos aquí arriba ##
 
@@ -46,7 +46,7 @@ class Cocinero(Persona):
 class Cliente(Persona):
     def __init__(self, nombre, platos_preferidos = {}):
         super().__init__(nombre)
-        self.platos_preferidos = platos_preferidos
+        self.platos_preferidos = platos_preferidos #definir elegir n elementos desde el diccionario
 
     def recibir_pedido(self, pedido, demora):
         calificacion = 10
@@ -68,10 +68,16 @@ if __name__ == "__main__":
     ### Código para probar que tu clase haya sido creada correctamente  ###
     ### Corre directamente este archivo para que este código se ejecute ###
     try:
-        PLATOS_PRUEBA = {
-        "Jugo Natural": ["Jugo Natural", "Bebestible"],
-        "Empanadas": ["Empanadas", "Comestible"],
-        }
+        PLATOS_PRUEBA ={
+    "Pepsi": ["Pepsi", "Bebestible"],
+    "Coca-Cola": ["Coca-Cola", "Bebestible"],
+    "Jugo Natural": ["Jugo Natural", "Bebestible"],
+    "Agua": ["Agua", "Bebestible"],
+    "Papas Duqueza": ["Papas Duqueza", "Comestible"],
+    "Lomo a lo Pobre": ["Lomo a lo Pobre", "Comestible"],
+    "Empanadas": ["Empanadas", "Comestible"],
+    "Mariscos": ["Mariscos", "Comestible"],
+    }
         un_cocinero = Cocinero("Cristian", randint(1, 10))
         # un_cocinero = Cocinero("Juan")
         un_repartidor = Repartidor("Tomás", randint(20, 30))

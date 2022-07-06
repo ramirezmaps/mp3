@@ -1,13 +1,22 @@
 
+from personas import Cliente
+
 ##############################################################
 ## Si necesita agregar imports, debe agregarlos aquí arriba ##
 
 ### INICIO PARTE 3 ###
 class Restaurante:
-    def __init__(self, nombre, platos, cocineros, repartidores, calificacion):
-        pass
+    def __init__(self, nombre, platos = {}, cocineros = [], repartidores = []):
+        self.nombre = nombre
+        self.platos = platos
+        self.cocineros = cocineros
+        self.repartidores = repartidores
+        self.calificacion = 0
+        
+        
     
-    def recibir_pedidos(clientes)
+    def recibir_pedidos(clientes):
+        pass
 ### FIN PARTE 3 #
 
 if __name__ == "__main__":
