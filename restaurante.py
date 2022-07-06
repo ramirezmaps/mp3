@@ -1,9 +1,13 @@
+
 ##############################################################
 ## Si necesita agregar imports, debe agregarlos aquí arriba ##
 
 ### INICIO PARTE 3 ###
 class Restaurante:
-    pass
+    def __init__(self, nombre, platos, cocineros, repartidores, calificacion):
+        pass
+    
+    def recibir_pedidos(clientes)
 ### FIN PARTE 3 #
 
 if __name__ == "__main__":
