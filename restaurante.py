@@ -1,6 +1,5 @@
 
-from personas import Cliente
-
+from personas import Cliente, Cocinero, Repartidor
 ##############################################################
 ## Si necesita agregar imports, debe agregarlos aquí arriba ##
 
@@ -15,8 +14,29 @@ class Restaurante:
         
         
     
-    def recibir_pedidos(clientes):
-        pass
+    def recibir_pedidos(self, clientes):
+        for cliente in clientes:
+            pedido = []
+            print(f"El Nombre del cliente es: {cliente.nombre}")
+            for plato in cliente.platos_preferidos:
+                informacion_plato = self.platos[plato]
+                self.cocineros.sort(reverse=True, key=lambda x: x.habilidad)
+                for cocinero in self.cocineros:
+                    if cocinero.energia > 0:
+                        r = cocinero.cocinar(informacion_plato)
+                        pedido.append(r)
+                        break
+            self.repartidores.sort(reverse=False, key=lambda x: x.tiempo_entrega)
+            for repartidor in self.repartidores:
+                if repartidor.energia > 0:
+                    tiempo_de_entrega = repartidor.repartir(pedido)
+                    self.calificacion += cliente.recibir_pedido(pedido, tiempo_de_entrega)
+                    break
+                else:
+                    self.calificacion += cliente.recibir_pedido([],0)
+        self.calificacion = self.calificacion / len(clientes)
+        print(str(self.calificacion))
+                    
 ### FIN PARTE 3 #
 
 if __name__ == "__main__":

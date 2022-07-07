@@ -37,8 +37,8 @@ class Cocinero(Persona):
         self.habilidad = habilidad
         self.energia = randint(50,80)
 
-    # def cocinar(self, informacion_plato):
-    #     pass
+    def cocinar(self, informacion_plato):
+        nombre
 
 ### FIN PARTE 2.3 ###
 

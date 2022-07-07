@@ -30,7 +30,6 @@ class Comestible(Plato):
         self.dificultad = randint(1,10)
         self.calidad = randint(5,10)
         
-   
 ### FIN PARTE 1.3 ###
 if __name__ == "__main__":
     ### Código para probar que tu clase haya sido creada correctamente  ###
