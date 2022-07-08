@@ -1,22 +1,47 @@
 ##############################################################
 from random import seed
+from random import randint, sample
+from secrets import choice
+from personas import Cliente, Cocinero, Repartidor
+from restaurante import Restaurante
+
 ## Si necesita agregar imports, debe agregarlos aquí arriba ##
 
 ### INICIO PARTE 4 ###
 
 def crear_cocineros():
-    pass
+    lista_cocineros = []
+    for i in range(1,6):
+        lista_cocineros.append(Cocinero(choice(NOMBRES)))
+    return(lista_cocineros)
 
 
 def crear_repartidores():
-    pass
+    lista_repartidores = []
+    for i in range(1,3):
+        lista_repartidores.append(Repartidor(choice(NOMBRES)))
+    return(lista_repartidores)
+    
 
 def crear_clientes():
-    pass
+    lista_clientes = []
+    for i in range(1,6):
+        platos = sample(INFO_PLATOS.keys(),k=randint(1,5))
+        lista_platos = []
+        for plato in platos:
+            lista_platos.append(INFO_PLATOS[plato])
+        lista_clientes.append(Cliente(choice(NOMBRES), lista_platos))
+    return(lista_clientes)
+        
 
 
 def crear_restaurante():
-    pass
+    cocineros = crear_cocineros()
+    repartidores = crear_repartidores()
+    restaurante = Restaurante("El_Cocina_Datos", INFO_PLATOS,cocineros,repartidores)
+    return(restaurante)
+    
+    
 
 ### FIN PARTE 4 ###
 
@@ -25,7 +50,6 @@ def crear_restaurante():
 ## Este archivo debe ser ejecutado para probar el funcionamiento
 ## de su programa orientado a objetos.
 ################################################################
-
 INFO_PLATOS = {
     "Pepsi": ["Pepsi", "Bebestible"],
     "Coca-Cola": ["Coca-Cola", "Bebestible"],

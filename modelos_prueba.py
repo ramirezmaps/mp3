@@ -1,8 +1,11 @@
-from random import choices, randrange
+
+
+from random import randint, sample
 from secrets import choice
 
-
-PLATOS_PRUEBA ={
+from personas import Cliente, Repartidor, Cocinero
+NOMBRES = ["Amaia", "Cristian", "Maggie", "Pablo", "Catalina", "Juan", "Sergio"]
+INFO_PLATOS = {
     "Pepsi": ["Pepsi", "Bebestible"],
     "Coca-Cola": ["Coca-Cola", "Bebestible"],
     "Jugo Natural": ["Jugo Natural", "Bebestible"],
@@ -13,9 +16,34 @@ PLATOS_PRUEBA ={
     "Mariscos": ["Mariscos", "Comestible"],
 }
 
+def crear_repartidores():
+    lista_repartidores = []
+    for i in range(1,3):
+        lista_repartidores.append(Repartidor(choice(NOMBRES)))
+    return(lista_repartidores)
 
-# Usamos asignación múltiple, para seleccionar la clave y valor del elemento del diccionario, aleatoriamente seleccionado.
-# Nótese como realizamos una conversión a lista de los elementos del diccionario para hacer uso del método choice.
-clave, valor = choices(list(PLATOS_PRUEBA.items()))
-print(clave, valor)
+def crear_cocineros():
+    lista_cocineros = []
+    for i in range(1,6):
+        lista_cocineros.append(Cocinero(choice(NOMBRES)))
+    return(lista_cocineros)
 
+def crear_clientes():
+    lista_clientes = []
+    for i in range(1,6):
+        platos = sample(INFO_PLATOS.keys(),k=randint(1,5))
+        lista_platos = []
+        for plato in platos:
+            lista_platos.append(INFO_PLATOS[plato])
+        lista_clientes.append(Cliente(choice(NOMBRES), lista_platos))
+    return(lista_clientes)
+
+print(crear_cocineros())
+
+
+
+    
+
+
+
+        

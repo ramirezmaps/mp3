@@ -5,7 +5,7 @@ from personas import Cliente, Cocinero, Repartidor
 
 ### INICIO PARTE 3 ###
 class Restaurante:
-    def __init__(self, nombre, platos = {}, cocineros = [], repartidores = []):
+    def __init__(self, nombre, platos, cocineros, repartidores):
         self.nombre = nombre
         self.platos = platos
         self.cocineros = cocineros
@@ -17,7 +17,6 @@ class Restaurante:
     def recibir_pedidos(self, clientes):
         for cliente in clientes:
             pedido = []
-            print(f"El Nombre del cliente es: {cliente.nombre}")
             for plato in cliente.platos_preferidos:
                 informacion_plato = self.platos[plato]
                 self.cocineros.sort(reverse=True, key=lambda x: x.habilidad)
